@@ -40,5 +40,8 @@ Simulating stock trading website using data requested from IEX API.
   <li>
     Refactor the code in application.py
   </li>
+  <li>
+    Page break for history page
+  </li>
 </ol>
     
