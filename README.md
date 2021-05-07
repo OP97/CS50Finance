@@ -37,3 +37,8 @@ Simulating stock trading website using data requested from IEX API.
   <li>
     Hosting the website
   </li>
+  <li>
+    Refactor the code in application.py
+  </li>
+</ol>
+    
