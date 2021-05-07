@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="section">
+        {% if stock_infos %}
+        <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Symbol</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td>{{ stock_infos["name"] }}</td>
+                <td>{{ stock_infos["price"] | usd }}</td>
+                <td>{{ stock_infos["symbol"] }}</td>
+            </tr>
+            </tbody>
+        </table>
+        {% else %}
+        No such symbol
+        {% endif %}
+    </div>
+{% endblock %}

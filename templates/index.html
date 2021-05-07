@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Summary
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Symbol</th>
+              <th scope="col">Shares</th>
+              <th scope="col">Price</th>
+              <th scope="col">Total</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for stock in ownings %}
+            <tr>
+                <td>{{ stock["symbol"].upper() }}</td>
+                <td>{{ stock["share_amount"] }}</td>
+                <td>{{ stock["price"] | usd }}</td>
+                <td>{{ stock["stock_total"] | usd }}</td>
+                <td>
+                    <form id="action_form" method="post">
+                        <span class="form-group">
+                            <input id="share_quantity" autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" min="1">
+                            <input value="{{ stock["symbol"] }}" type="hidden" name="symbol">
+                        </span>
+                        <button id="btn_buy" class="btn btn-primary" type="submit" data-action="buy">Buy</button>
+                        <button id="btn_sell" class="btn btn-primary" type="submit" data-action="sell">Sell</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td>{{ cash | usd }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong>{{ grand_total | usd}}</strong></td>
+                <td></td>
+
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="{{url_for('static', filename='button.js')}}"></script>
+{% endblock %}
