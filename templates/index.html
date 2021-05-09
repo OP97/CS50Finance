@@ -24,13 +24,13 @@
                 <td>{{ stock["price"] | usd }}</td>
                 <td>{{ stock["stock_total"] | usd }}</td>
                 <td>
-                    <form id="action_form" method="post">
+                    <form id="{{ stock["symbol"] }}" method="post">
                         <span class="form-group">
-                            <input id="share_quantity" autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" min="1">
+                            <input id="shareQuantityForInput" autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" min="1">
                             <input value="{{ stock["symbol"] }}" type="hidden" name="symbol">
                         </span>
-                        <button id="btn_buy" class="btn btn-primary" type="submit" data-action="buy">Buy</button>
-                        <button id="btn_sell" class="btn btn-primary" type="submit" data-action="sell">Sell</button>
+                        <button id="btn_buy" class="btn btn-primary" type="submit" data-action="buy" data-id="{{ stock["symbol"] }}">Buy</button>
+                        <button id="btn_sell" class="btn btn-primary" type="submit" data-action="sell" data-id="{{ stock["symbol"] }}">Sell</button>
                     </form>
                 </td>
             </tr>
