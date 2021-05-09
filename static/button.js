@@ -1,8 +1,7 @@
 $(document).ready(function() {
     $("button").click(function() {
-        var action = $(this).data("action");
-        var buttonDataId = $(this).data("id");// get button's action
-        // var share_quantity = document.getElementById("share_quantity").value;
+        var action = $(this).data("action"); // get button's action
+        var buttonDataId = $(this).data("id"); // get button's data id to use it for form's id
 
         if (action == "sell") {
                 document.getElementById(buttonDataId).action = "/sell"; // change form's action to sell
